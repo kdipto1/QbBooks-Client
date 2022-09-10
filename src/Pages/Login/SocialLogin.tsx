@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import auth from '../../firebase.init';
+import React, { useEffect } from "react";
+import auth from "../../firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 const SocialLogin = () => {
@@ -34,12 +34,11 @@ const SocialLogin = () => {
   //   }
   // }, [from, user, navigate, error, loading]);
   return (
-    <section>
+    <section className="container">
       <button
         onClick={() => signInWithGoogle()}
-        className="btn btn-wide hover:btn-primary"
+        className="btn btn-wide btn-primary"
       >
-        {" "}
         Continue With google
       </button>
     </section>

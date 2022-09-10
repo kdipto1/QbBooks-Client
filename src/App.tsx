@@ -1,10 +1,9 @@
-import './App.css';
 import Home from './Pages/Home/Home';
 import SocialLogin from './Pages/Login/SocialLogin';
 
 function App() {
   return (
-    <div className="App">
+    <div className=''>
       <Home />
       <SocialLogin/>
       hello world
