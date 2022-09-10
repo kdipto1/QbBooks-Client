@@ -5,9 +5,8 @@ import TopCategories from "./TopCategories";
 
 const Home = () => {
   return (
-    <main className="">
-      <h2 className="text-4xl font-bold">This is Home</h2>
-      <Banner />
+    <main className="overflow-x-hidden">
+      {/* <Banner /> */}
       <FeaturedBooks />
       <TopCategories />
     </main>

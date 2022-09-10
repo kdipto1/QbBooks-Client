@@ -14,7 +14,8 @@ const FeaturedBooks = (): JSX.Element => {
   }
   console.log(books);
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto mt-10">
+      <h2 className="text-center text-4xl font-bold">Featured Books</h2>
       <h1>Featured books</h1>
       {books?.map((book: any) => (
         <h1 key={book._id}>{book.title}</h1>

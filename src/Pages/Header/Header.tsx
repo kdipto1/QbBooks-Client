@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 const Header = () => {
   const menuItems: JSX.Element = (
@@ -41,7 +43,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <Link className="btn " to="/login">Login</Link>
       </div>
     </div>
   );

@@ -1,38 +1,48 @@
 import React, { useEffect } from "react";
 import auth from "../../firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-const SocialLogin = () => {
+import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import axios from "axios";
+
+type LocationProps = {
+  state: {
+    from: Location;
+  };
+};
+const SocialLogin = (): JSX.Element => {
   const navigate = useNavigate();
-  const location = useLocation();
-  // let froms = location.state?.from?.pathname || "/";
+  const location = useLocation() as unknown as LocationProps;
+  let from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  // useEffect(() => {
-  //   if (user) {
-  //     toast.success("Login Successful");
-  //     // console.log(user1);
-  //     const url = "https://stock-world-server.herokuapp.com/login";
-  //     axios
-  //       .post(url, { email: user?.email })
-  //       .then((response) => {
-  //         const { data } = response;
-  //         localStorage.setItem("accessToken", data.token);
-  //         localStorage.setItem("email", user?.email);
-  //         // console.log(data);
-  //         navigate(from, { replace: true });
-  //       })
-  //       .catch(function (error) {
-  //         toast.error(error.message);
-  //         console.log(error);
-  //       });
-  //   }
-  //   if (loading) {
-  //     return;
-  //   }
-  //   if (error) {
-  //     toast.error(error?.message);
-  //   }
-  // }, [from, user, navigate, error, loading]);
+  const [user1] = useAuthState(auth);
+  useEffect(() => {
+    const email: string = user1?.email!;
+    if (user) {
+      toast.success("Login Successful");
+      // console.log(user1);
+      const url = "http://localhost:5000/login";
+      axios
+        .post(url, { email: user1?.email })
+        .then((response) => {
+          const { data } = response;
+          localStorage.setItem("accessToken", data.token);
+          localStorage.setItem("email", email);
+          navigate(from, { replace: true });
+        })
+        .catch(function (error) {
+          toast.error(error.message);
+          console.log(error);
+        });
+    }
+    if (error) {
+      toast.error(error?.message);
+    }
+  }, [from, user, navigate, error, loading, user1?.email]);
+  if (loading) {
+    return <div>Loading</div>;
+  }
+  console.log(user1);
   return (
     <section className="container">
       <button
