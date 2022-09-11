@@ -3,7 +3,6 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Header = () => {
@@ -16,12 +15,16 @@ const Header = () => {
       <li>
         <NavLink to="/login">Login</NavLink>
       </li>
+      <li>
+        <NavLink to="/addBookDB">Add Book</NavLink>
+      </li>
     </>
   );
   const logOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
     localStorage.removeItem("email");
+    toast.success("You'r logged out");
   };
   return (
     <div className="navbar bg-primary text-primary-content font-bold">

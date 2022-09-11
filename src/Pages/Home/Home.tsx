@@ -6,7 +6,7 @@ import TopCategories from "./TopCategories";
 const Home = () => {
   return (
     <main className="overflow-x-hidden">
-      {/* <Banner /> */}
+      <Banner />
       <FeaturedBooks />
       <TopCategories />
     </main>

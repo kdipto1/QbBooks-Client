@@ -12,24 +12,17 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const bannerStyles = {
+    height: "75vh",
+  };
   return (
     <section>
       <Slider {...settings}>
         <div>
-          <img
-            className="w-full"
-            style={{ height: "85vh" }}
-            src={banner}
-            alt=""
-          />
+          <img className="w-full" style={bannerStyles} src={banner1} alt="" />
         </div>
         <div>
-          <img
-            className="w-full"
-            style={{ height: "85vh" }}
-            src={banner1}
-            alt=""
-          />
+          <img className="w-full" style={bannerStyles} src={banner} alt="" />
         </div>
       </Slider>
     </section>
