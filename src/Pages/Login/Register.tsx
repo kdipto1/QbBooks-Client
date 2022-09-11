@@ -1,5 +1,10 @@
+import axios from "axios";
 import React from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -14,27 +19,53 @@ type LocationProps = {
 const Register = (): JSX.Element => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-
+  const [updateProfile] = useUpdateProfile(auth);
+  const [user1] = useAuthState(auth);
   let navigate = useNavigate();
   let location = useLocation() as unknown as LocationProps;
   let from = location.state?.from?.pathname || "/";
   // useEffect(() => {
-  if (loading) {
-    return <div>Loading</div>
-  }
-  if (error) {
-    toast.error(error?.message);
-  }
-  if (user) {
-    toast.success("Successfully Registered");
-    navigate(from, { replace: true });
-  }
+
   // }, [error, from, loading, navigate, user]);
-  const handleRegister = (event: any) => {
+  const handleRegister = async (event: any) => {
     event.preventDefault();
+    if (loading) {
+      return <div>Loading</div>;
+    }
+    if (error) {
+      toast.error(error?.message);
+    }
+    const name = event?.target?.name?.value;
     const email = event?.target?.email?.value;
     const password = event?.target?.password?.value;
-    createUserWithEmailAndPassword(email, password);
+
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile(name);
+    // const postUser = async () => {
+    // if (user1) {
+    const role = "user";
+    const url1 = `http://localhost:5000/user/${email}`;
+    await axios
+      .put(url1, {
+        email: email,
+        name: name,
+        role: role,
+      })
+      .then((response) => {
+        const { data } = response;
+        console.log(data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // }
+    // };
+    // postUser();
+    if (user1) {
+      toast.success("Successfully Registered");
+      navigate(from, { replace: true });
+    }
+    console.log(email, password, name);
   };
   return (
     <section className="h-screen container mx-auto mt-20">
