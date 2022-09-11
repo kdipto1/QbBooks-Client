@@ -120,7 +120,7 @@ const Login = (): JSX.Element => {
             <input
               type="submit"
               value="Login"
-              className="btn hover:btn-primary btn-wide mt-2"
+              className="btn btn-primary btn-wide mt-2"
             />
           </form>
           <h1>
