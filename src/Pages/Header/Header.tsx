@@ -10,11 +10,19 @@ const Header = () => {
   const [user, error, loading] = useAuthState(auth);
   const menuItems: JSX.Element = (
     <>
-      <li>Home</li>
-      <li>Login</li>
-      <li>Blogs</li>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/login">Login</NavLink>
+      </li>
     </>
   );
+  const logOut = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("email");
+  };
   return (
     <div className="navbar bg-primary text-primary-content font-bold">
       <div className="navbar-start">
@@ -51,10 +59,7 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button
-            onClick={() => signOut(auth)}
-            className="btn hover:btn-primary"
-          >
+          <button onClick={logOut} className="btn hover:btn-primary">
             Sign Out
           </button>
         ) : (
