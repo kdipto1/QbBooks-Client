@@ -1,8 +1,13 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import auth from "../../firebase.init";
 
 const Header = () => {
+  const [user, error, loading] = useAuthState(auth);
   const menuItems: JSX.Element = (
     <>
       <li>Home</li>
@@ -37,13 +42,26 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl font-bold">QbBooks</a>
+        <NavLink to="/" className="btn btn-ghost normal-case text-xl font-bold">
+          QbBooks
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn " to="/login">Login</Link>
+        {user ? (
+          <button
+            onClick={() => signOut(auth)}
+            className="btn hover:btn-primary"
+          >
+            Sign Out
+          </button>
+        ) : (
+          <NavLink className="btn " to="/login">
+            Login
+          </NavLink>
+        )}
       </div>
     </div>
   );

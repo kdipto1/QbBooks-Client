@@ -42,7 +42,7 @@ const SocialLogin = (): JSX.Element => {
   if (loading) {
     return <div>Loading</div>;
   }
-  console.log(user1);
+  // console.log(user1);
   return (
     <section className="container">
       <button
