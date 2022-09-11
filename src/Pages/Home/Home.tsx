@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
+import Contact from "./Contact";
 import FeaturedBooks from "./FeaturedBooks";
+import Testimonials from "./Testimonials";
 import TopCategories from "./TopCategories";
 
 const Home = () => {
@@ -9,6 +11,8 @@ const Home = () => {
       <Banner />
       <FeaturedBooks />
       <TopCategories />
+      <Testimonials />
+      <Contact/>
     </main>
   );
 };

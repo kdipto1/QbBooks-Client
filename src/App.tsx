@@ -6,6 +6,8 @@ import Login from "./Pages/Login/Login";
 import Footer from "./Pages/Footer/Footer";
 import Register from "./Pages/Login/Register";
 import AddBookDB from "./Pages/Dashboard/AddBookDB";
+import Book from "./Pages/Books/Book";
+import RequireAuth from "./Pages/Login/RequireAuth";
 
 function App() {
   return (
@@ -16,6 +18,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/addBookDB" element={<AddBookDB />} />
+        <Route
+          path="/book/:id"
+          element={
+            <RequireAuth>
+              <Book />
+            </RequireAuth>
+          }
+        />
       </Routes>
       <Footer />
       <Toaster />

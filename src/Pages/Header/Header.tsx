@@ -18,6 +18,9 @@ const Header = () => {
       <li>
         <NavLink to="/addBookDB">Add Book</NavLink>
       </li>
+      <li>
+        <NavLink to="/book">Book</NavLink>
+      </li>
     </>
   );
   const logOut = () => {
