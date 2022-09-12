@@ -21,7 +21,7 @@ const AddBookDB = () => {
     formState: { errors },
   } = useForm<book>();
   const onSubmit = handleSubmit(async (data: book) => {
-    const url = `http://localhost:5000/test`;
+    const url = `http://localhost:5000/addBook`;
     await axios
       .post(url, data)
       .then((response) => {
@@ -35,7 +35,7 @@ const AddBookDB = () => {
       .catch(function (error) {
         console.log(error);
       });
-    console.log(data);
+    // console.log(data);
   });
   return (
     <section className="container mx-auto">
@@ -225,7 +225,7 @@ const AddBookDB = () => {
               </div>
               {/*  */}
             </div>
-            <input className="btn btn-primary my-2" type="submit" />
+            <input className="btn btn-wide btn-primary my-2" type="submit" />
           </form>
         </div>
       </div>

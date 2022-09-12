@@ -1,8 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import AddToCart from "../Cart/AddToCart";
+
+
 
 const FeaturedBooks = (): JSX.Element => {
+  const [user, loading, error] = useAuthState(auth);
   const { data: books, isLoading } = useQuery(
     ["featuredBooks"],
     async () =>
@@ -10,10 +16,10 @@ const FeaturedBooks = (): JSX.Element => {
         res.json()
       )
   );
-  if (isLoading) {
+  if (isLoading || loading) {
     return <div>Loading</div>;
   }
-  console.log(books);
+  // console.log(books);
   return (
     <section className="container mx-auto mt-10">
       <h2 className="text-center text-4xl font-bold my-4">Featured Books</h2>
@@ -24,18 +30,13 @@ const FeaturedBooks = (): JSX.Element => {
             className="card card-compact bg-base-100 shadow-xl"
           >
             <figure>
-              <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+              <img className="h-44" src={book?.image} alt="Shoes" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{book?.title}</h2>
+              <h2 className="card-title">{book?.name}</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
               <div className="card-actions justify-end">
-                {/* <Link
-                  to={`/book/${book._id}`}
-                  className="btn btn-sm btn-primary"
-                >
-                  Add to cart
-                </Link> */}
+                <AddToCart user={user?.email} book={book} />
                 <Link
                   to={`/book/${book._id}`}
                   className="btn btn-sm btn-primary"
