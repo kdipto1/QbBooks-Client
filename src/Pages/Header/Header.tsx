@@ -19,8 +19,11 @@ const Header = () => {
         <NavLink to="/addBookDB">Add Book</NavLink>
       </li>
       <li>
-        <NavLink to="/book">Book</NavLink>
+        <NavLink to="/myProfile">My Profile</NavLink>
       </li>
+      {/* <li>
+        <NavLink to="/dashboard">Dashboard</NavLink>
+      </li> */}
     </>
   );
   const logOut = () => {
