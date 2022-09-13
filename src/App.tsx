@@ -10,6 +10,8 @@ import Book from "./Pages/Books/Book";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
+import AddToCart from "./Pages/Cart/AddToCart";
+import Cart from "./Pages/Cart/Cart";
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
         />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/myProfile" element={<MyProfile />} />
+        <Route path="/cart" element={<Cart/>} />
       </Routes>
       <Footer />
       <Toaster />

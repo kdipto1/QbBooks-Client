@@ -4,8 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
-
-
+import RequireAuth from "../Login/RequireAuth";
 
 const FeaturedBooks = (): JSX.Element => {
   const [user, loading, error] = useAuthState(auth);
@@ -19,6 +18,7 @@ const FeaturedBooks = (): JSX.Element => {
   if (isLoading || loading) {
     return <div>Loading</div>;
   }
+  
   // console.log(books);
   return (
     <section className="container mx-auto mt-10">
@@ -32,11 +32,19 @@ const FeaturedBooks = (): JSX.Element => {
             <figure>
               <img className="h-44" src={book?.image} alt="Shoes" />
             </figure>
-            <div className="card-body">
+            <div className="card-body font-bold">
               <h2 className="card-title">{book?.name}</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <h4>Category: {book?.category}</h4>
+              <h4>Author: {book?.author}</h4>
+              <h4>Price: {book?.price} $</h4>
+              <h4>Stock: {book?.quantity}</h4>
+              <p className="">Category: {book?.category}</p>
               <div className="card-actions justify-end">
-                <AddToCart user={user?.email} book={book} />
+                <AddToCart
+                  user={user?.email}
+                  book={book}
+                />
+
                 <Link
                   to={`/book/${book._id}`}
                   className="btn btn-sm btn-primary"
