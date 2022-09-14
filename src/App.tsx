@@ -10,8 +10,11 @@ import Book from "./Pages/Books/Book";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
-import AddToCart from "./Pages/Cart/AddToCart";
+
+import AllBooks from "./Pages/Books/AllBooks";
 import Cart from "./Pages/Cart/Cart";
+import NotFound from "./Pages/NotFound/NotFound";
+import CategoryBooks from "./Pages/Books/CategoryBooks";
 
 function App() {
   return (
@@ -32,7 +35,10 @@ function App() {
         />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/myProfile" element={<MyProfile />} />
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/allBooks" element={<AllBooks />} />
+        <Route path="/category/:category" element={<CategoryBooks />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <Toaster />

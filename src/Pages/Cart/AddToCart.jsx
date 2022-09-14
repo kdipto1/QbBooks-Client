@@ -5,25 +5,28 @@ import toast from "react-hot-toast";
 import { Navigate, useLocation } from "react-router";
 import auth from "../../firebase.init";
 
-type LocationProps = {
-  state: {
-    from: Location;
-  };
-};
-const AddToCart = (props: any) => {
-  const location = useLocation() as unknown as LocationProps;
+// type LocationProps = {
+//   state: {
+//     from: Location;
+//   };
+// };
+const AddToCart = (props) => {
+  const location = useLocation();
+  // const location = useLocation() as unknown as LocationProps;
   const [user, loading, error] = useAuthState(auth);
-  const addTo = async (): Promise<JSX.Element | undefined> => {
+  const addTo = async ()=> {
     if (loading) return;
-    if (!user)
-      return <Navigate to="/login" state={{ from: location }} replace />;
+    if (!user) {
+      // toast("")
+      <Navigate toast={toast("Please login to add product to cart")} to="/login" state={{ from: location }} replace />;
+      return;
+    }
     // const toast: any = toast("You need to login to visit this page");
-
     // console.log(props);
     // console.log(props?.book?._id, props?.user);
     // console.log(props?.user);
     const cartItem = {
-      book: props?.book,
+      book: props?.book._id,
       email: props?.user,
     };
     const url = `http://localhost:5000/cart`;
@@ -41,10 +44,7 @@ const AddToCart = (props: any) => {
       });
   };
   return (
-    <button
-      onClick={() => addTo()}
-      className="btn btn-sm btn-warning"
-    >
+    <button onClick={() => addTo()} className="btn btn-sm btn-warning">
       Add to cart
     </button>
   );

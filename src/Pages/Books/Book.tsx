@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
 
+
 const Book = (): JSX.Element => {
   const [user, loading, error] = useAuthState(auth);
   const { id } = useParams() as any;
