@@ -5,13 +5,12 @@ const Contact = () => {
     event.preventDefault();
   };
   return (
-    <section className="container mx-auto">
+    <section id="contact" className="container mx-auto">
       <section className="min-h-screen bg-white dark:bg-gray-900 lg:flex">
         <div className="flex flex-col justify-center w-full p-8 lg:bg-gray-100 lg:dark:bg-gray-800 lg:px-12 xl:px-32 lg:w-1/2">
           <h1 className="text-3xl font-semibold text-gray-800 capitalize dark:text-white lg:text-5xl">
             Contact us.
           </h1>
-
           <p className="mt-4 text-gray-500 dark:text-gray-400">
             Ask us everything and we would love to hear from you
           </p>
@@ -135,7 +134,7 @@ const Contact = () => {
             </div>
 
             <button
-              onClick={(event)=>contact(event)}
+              onClick={(event) => contact(event)}
               className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50"
             >
               get in touch

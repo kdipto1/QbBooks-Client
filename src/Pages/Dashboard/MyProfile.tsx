@@ -23,14 +23,14 @@ const MyProfile = (): JSX.Element => {
   if (isLoading || loading) {
     return <div>Loading</div>;
   }
-  console.log(profile);
+  console.log(user);
   const updateProfile = async (event: any) => {
     event.preventDefault();
     const name = event?.target.name.value;
     const address = event?.target.address.value;
-    const education = event?.target.education.value;
+
     const phone = event?.target.phone.value;
-    const linkedin = event?.target.linkedin.value;
+
     const url = `http://localhost:5000/users/${profile._id}`;
     await axios
       .put(
@@ -38,8 +38,6 @@ const MyProfile = (): JSX.Element => {
         {
           name: name,
           address: address,
-          education: education,
-          linkedin: linkedin,
           phone: phone,
         },
         {
@@ -68,6 +66,11 @@ const MyProfile = (): JSX.Element => {
       <div className="card mx-auto w-96 bg-base-100 shadow-xl mt-10">
         <div className="card-body">
           <h2 className="mx-auto card-title">Profile:</h2>
+          <div className="avatar flex justify-center">
+            <div className="w-24 rounded">
+              <img src={`${user?.photoURL}`} alt="user" />
+            </div>
+          </div>
           <p>Name: {profile?.name || ""}</p>
           <p>Email: {profile?.email || ""}</p>
           <p>Shipping address: {profile?.address || ""}</p>
@@ -101,7 +104,7 @@ const MyProfile = (): JSX.Element => {
                   placeholder="Update your name"
                   className="my-2 input input-bordered input-success w-full max-w-xs"
                 />
-                <label htmlFor="address">Address:</label>
+                <label htmlFor="address">Shipping address:</label>
                 <input
                   defaultValue={profile?.address}
                   name="address"
@@ -109,14 +112,7 @@ const MyProfile = (): JSX.Element => {
                   placeholder="Update your address"
                   className="my-2 input input-bordered input-success w-full max-w-xs"
                 />
-                <label htmlFor="comment">Education:</label>
-                <input
-                  defaultValue={profile?.education}
-                  name="education"
-                  type="text"
-                  placeholder="Update education background"
-                  className="my-2 input input-bordered input-success w-full max-w-xs"
-                />
+
                 <label htmlFor="phone">Phone:</label>
                 <input
                   defaultValue={profile?.phone}
@@ -125,22 +121,16 @@ const MyProfile = (): JSX.Element => {
                   placeholder="Update phone number"
                   className="my-2 input input-bordered input-success w-full max-w-xs"
                 />
-                <label htmlFor="linkedin">LinkedIn Address:</label>
-                <input
-                  defaultValue={profile?.linkedin}
-                  type="text"
-                  name="linkedin"
-                  placeholder="Update linkedin address"
-                  className="mt-2 input input-bordered input-success w-full max-w-xs"
-                />
-                <div className="card-actions justify-end">
+                <label
+                  htmlFor="my-modal-6"
+                  className="card-actions justify-center"
+                >
                   <input
-                    htmlFor="my-modal-6"
                     type="submit"
                     value="Update"
                     className="mt-4 btn btn-primary modal-action"
                   />
-                </div>
+                </label>
               </form>
             </div>
           </div>

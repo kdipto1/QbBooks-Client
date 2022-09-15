@@ -26,7 +26,7 @@ const AddToCart = (props) => {
     // console.log(props?.book?._id, props?.user);
     // console.log(props?.user);
     const cartItem = {
-      book: props?.book._id,
+      book: props?.book,
       email: props?.user,
     };
     const url = `http://localhost:5000/cart`;

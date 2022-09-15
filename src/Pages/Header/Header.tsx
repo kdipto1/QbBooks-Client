@@ -10,23 +10,34 @@ const Header = () => {
   const menuItems: JSX.Element = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink className="mx-2" to="/">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/login">Login</NavLink>
+        <NavLink className="mx-2" to="/allBooks">
+          All books
+        </NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink className="mx-2" to="/myProfile">
+            My Profile
+          </NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
+          <NavLink className="mx-2" to="/cart">
+            Cart
+          </NavLink>
+        </li>
+      )}
       <li>
-        <NavLink to="/addBookDB">Add Book</NavLink>
+        <a className="mx-2" href="#contact">
+          Contact
+        </a>
       </li>
-      <li>
-        <NavLink to="/myProfile">My Profile</NavLink>
-      </li>
-      <li>
-        <NavLink to="/cart">Cart</NavLink>
-      </li>
-      {/* <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
-      </li> */}
     </>
   );
   const logOut = () => {
@@ -36,7 +47,7 @@ const Header = () => {
     toast.success("You'r logged out");
   };
   return (
-    <div className="navbar bg-primary text-primary-content font-bold">
+    <div className="navbar bg-teal-50 font-bold">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -85,6 +96,36 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user ? (
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="m-1">
+              <div className="avatar">
+                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img className="" src={`${user?.photoURL}`} alt="" />
+                </div>
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow bg-secondary rounded-box w-52"
+            >
+              <li>
+                <NavLink className="btn hover:btn-primary" to="/addBookDB">
+                  Add Book
+                </NavLink>
+              </li>
+              <li>
+                <button onClick={logOut} className="btn hover:btn-primary">
+                  Sign Out
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <NavLink className="btn " to="/login">
+            Login
+          </NavLink>
+        )}
+        {/* {user ? (
           <button onClick={logOut} className="btn hover:btn-primary">
             Sign Out
           </button>
@@ -92,7 +133,7 @@ const Header = () => {
           <NavLink className="btn " to="/login">
             Login
           </NavLink>
-        )}
+        )} */}
       </div>
     </div>
   );

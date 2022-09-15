@@ -15,6 +15,7 @@ import AllBooks from "./Pages/Books/AllBooks";
 import Cart from "./Pages/Cart/Cart";
 import NotFound from "./Pages/NotFound/NotFound";
 import CategoryBooks from "./Pages/Books/CategoryBooks";
+import Payment from "./Pages/Dashboard/Payment";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/addBookDB" element={<AddBookDB />} />
@@ -38,6 +40,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/allBooks" element={<AllBooks />} />
         <Route path="/category/:category" element={<CategoryBooks />} />
+        <Route path="/payment/:id" element={<Payment />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
