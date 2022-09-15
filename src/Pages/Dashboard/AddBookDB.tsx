@@ -21,7 +21,7 @@ const AddBookDB = () => {
     formState: { errors },
   } = useForm<book>();
   const onSubmit = handleSubmit(async (data: book) => {
-    const url = `http://localhost:5000/addBook`;
+    const url = `https://qbbooks.onrender.com/addBook`;
     await axios
       .post(url, data)
       .then((response) => {

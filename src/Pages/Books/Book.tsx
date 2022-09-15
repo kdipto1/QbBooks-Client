@@ -5,7 +5,6 @@ import { useParams } from "react-router";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
 
-
 const Book = (): JSX.Element => {
   const [user, loading, error] = useAuthState(auth);
   const { id } = useParams() as any;
@@ -16,7 +15,7 @@ const Book = (): JSX.Element => {
     isLoading,
     refetch,
   } = useQuery(["book"], () =>
-    fetch(`http://localhost:5000/book/${id}`, {
+    fetch(`https://qbbooks.onrender.com/book/${id}`, {
       headers: {
         Authorization: `${email} ${accessToken}`,
       },

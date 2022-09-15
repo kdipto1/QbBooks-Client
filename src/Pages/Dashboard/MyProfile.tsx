@@ -14,7 +14,7 @@ const MyProfile = (): JSX.Element => {
   } = useQuery(
     ["userProfile"],
     async () =>
-      await fetch(`http://localhost:5000/users?email=${user?.email}`, {
+      await fetch(`https://qbbooks.onrender.com/users?email=${user?.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -31,7 +31,7 @@ const MyProfile = (): JSX.Element => {
 
     const phone = event?.target.phone.value;
 
-    const url = `http://localhost:5000/users/${profile._id}`;
+    const url = `https://qbbooks.onrender.com/users/${profile._id}`;
     await axios
       .put(
         url,

@@ -44,7 +44,7 @@ const Register = (): JSX.Element => {
     // const postUser = async () => {
     // if (user1) {
     const role = "user";
-    const url1 = `http://localhost:5000/user/${email}`;
+    const url1 = `https://qbbooks.onrender.com/user/${email}`;
     await axios
       .put(url1, {
         email: email,

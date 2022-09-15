@@ -11,14 +11,14 @@ const Cart = () => {
   const { data: cartItems, isLoading } = useQuery(
     ["userCart"],
     async () =>
-      await fetch(`http://localhost:5000/userCart?email=${email}`).then((res) =>
-        res.json()
+      await fetch(`https://qbbooks.onrender.com/userCart?email=${email}`).then(
+        (res) => res.json()
       )
   );
   if (isLoading || loading) {
     return <div>Loading</div>;
   }
-  console.log(cartItems);
+  console.log(cartItems?.status);
   /* ++++++++++++++++++++++++++++++++++++++++ */
   //  cartItems.map((item:any)=> )
   // const obj = JSON.stringify({cartBookId:cartBookId});
@@ -29,9 +29,9 @@ const Cart = () => {
   //   const obj = Object.assign({}, cartBookId);
   //   const bookData = JSON.stringify(cartBookId);
   //   console.log(bookData);
-  //   // (`http://localhost:5000/cartBooks?books=${bookData}`, cartBookId)
+  //   // (`https://qbbooks.onrender.com/cartBooks?books=${bookData}`, cartBookId)
   //   await axios
-  //     .get(`http://localhost:5000/cartBooks/${bookData}`, cartBookId)
+  //     .get(`https://qbbooks.onrender.com/cartBooks/${bookData}`, cartBookId)
   //     .then((response) => {
   //       const { data } = response;
   //       // setBook(data);
@@ -59,13 +59,16 @@ const Cart = () => {
               <p>Author: {item?.book?.author}</p>
               <p>Price: {item?.book?.price}$</p>
               <p>Stock: {item?.book?.quantity}</p>
+              {item.status === "paid" && "Status: Payment completed"}
               <div className="card-actions justify-center">
-                <Link
-                  className="btn"
-                  to={`/payment/${item?._id}`}
-                >
-                  Pay
-                </Link>
+                {item.status !== "paid" && (
+                  <Link
+                    className="btn btn-success"
+                    to={`/payment/${item?._id}`}
+                  >
+                    Proceed payment
+                  </Link>
+                )}
               </div>
             </div>
           </div>

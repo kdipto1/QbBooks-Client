@@ -1,11 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-import auth from '../../firebase.init';
-import AddToCart from '../Cart/AddToCart';
-
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import AddToCart from "../Cart/AddToCart";
 
 const CategoryBooks = () => {
   const { category } = useParams() as any;
@@ -14,9 +13,9 @@ const CategoryBooks = () => {
   const { data: books, isLoading } = useQuery(
     ["categoryBooks"],
     async () =>
-      await fetch(`http://localhost:5000/category?category=${category}`).then(
-        (res) => res.json()
-      )
+      await fetch(
+        `https://qbbooks.onrender.com/category?category=${category}`
+      ).then((res) => res.json())
   );
   if (isLoading || loading) {
     return <div>Loading</div>;

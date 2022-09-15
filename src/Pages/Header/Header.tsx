@@ -106,15 +106,15 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-secondary rounded-box w-52"
+              className="dropdown-content menu p-2 shadow bg-transparent rounded-box w-52"
             >
               <li>
-                <NavLink className="btn hover:btn-primary" to="/addBookDB">
+                <NavLink className="btn text-teal-50 hover:btn-warning" to="/addBookDB">
                   Add Book
                 </NavLink>
               </li>
               <li>
-                <button onClick={logOut} className="btn hover:btn-primary">
+                <button onClick={logOut} className="btn text-teal-50 hover:btn-warning">
                   Sign Out
                 </button>
               </li>

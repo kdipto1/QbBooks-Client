@@ -14,11 +14,16 @@ const AddToCart = (props) => {
   const location = useLocation();
   // const location = useLocation() as unknown as LocationProps;
   const [user, loading, error] = useAuthState(auth);
-  const addTo = async ()=> {
+  const addTo = async () => {
     if (loading) return;
     if (!user) {
       // toast("")
-      <Navigate toast={toast("Please login to add product to cart")} to="/login" state={{ from: location }} replace />;
+      <Navigate
+        toast={toast("Please login to add product to cart")}
+        to="/login"
+        state={{ from: location }}
+        replace
+      />;
       return;
     }
     // const toast: any = toast("You need to login to visit this page");
@@ -29,7 +34,7 @@ const AddToCart = (props) => {
       book: props?.book,
       email: props?.user,
     };
-    const url = `http://localhost:5000/cart`;
+    const url = `https://qbbooks.onrender.com/cart`;
     await axios
       .post(url, cartItem)
       .then((response) => {

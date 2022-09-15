@@ -26,7 +26,7 @@ const Banner = () => {
       <Slider {...settings}>
         <div>
           <img
-            className="w-full opacity-80"
+            className="w-full"
             style={bannerStyles}
             src={b}
             alt=""
@@ -34,7 +34,7 @@ const Banner = () => {
         </div>
         <div>
           <img
-            className="w-full opacity-80"
+            className="w-full "
             style={bannerStyles}
             src={banner1}
             alt=""
@@ -42,7 +42,7 @@ const Banner = () => {
         </div>
         <div>
           <img
-            className="w-full opacity-80"
+            className="w-full "
             style={bannerStyles}
             src={banner}
             alt=""

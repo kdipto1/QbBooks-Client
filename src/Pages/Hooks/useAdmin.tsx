@@ -7,7 +7,7 @@ const useAdmin = (user: any) => {
   const email = user?.email;
   if (email) {
     const getUser = async () => {
-      await fetch(`http://localhost:5000/users?email=${email}`, {
+      await fetch(`https://qbbooks.onrender.com/users?email=${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

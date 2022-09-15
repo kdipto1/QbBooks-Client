@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
 
-
 const AllBooks = () => {
   const { category } = useParams() as any;
   console.log(category);
@@ -13,7 +12,9 @@ const AllBooks = () => {
   const { data: books, isLoading } = useQuery(
     ["allBooks"],
     async () =>
-      await fetch("http://localhost:5000/allBooks").then((res) => res.json())
+      await fetch("https://qbbooks.onrender.com/allBooks").then((res) =>
+        res.json()
+      )
   );
   if (isLoading) {
     return <div>Loading</div>;

@@ -5,21 +5,19 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
 
-
-
 const FeaturedBooks = (): JSX.Element => {
   const [user, loading, error] = useAuthState(auth);
   const { data: books, isLoading } = useQuery(
     ["featuredBooks"],
     async () =>
-      await fetch("http://localhost:5000/featuredBooks").then((res) =>
+      await fetch("https://qbbooks.onrender.com/featuredBooks").then((res) =>
         res.json()
       )
   );
   if (isLoading || loading) {
     return <div>Loading</div>;
   }
-  
+
   // console.log(books);
   return (
     <section className="container mx-auto mt-6">
