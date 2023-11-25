@@ -105,7 +105,7 @@ const Header = () => {
             >
               <li>
                 <NavLink
-                  className="btn text-teal-50 hover:btn-warning"
+                  className="btn bg-teal-50 hover:bg-teal-100 "
                   to="/addBookDB"
                 >
                   Add Book
@@ -114,7 +114,7 @@ const Header = () => {
               <li>
                 <button
                   onClick={logOut}
-                  className="btn text-teal-50 hover:btn-warning"
+                  className="btn bg-teal-50 hover:bg-teal-100"
                 >
                   Sign Out
                 </button>

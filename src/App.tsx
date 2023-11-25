@@ -43,7 +43,14 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={
+            <RequireAuth>
+              <Cart />
+            </RequireAuth>
+          }
+        />
         <Route path="/allBooks" element={<AllBooks />} />
         <Route path="/category/:category" element={<CategoryBooks />} />
         <Route path="/payment/:id" element={<Payment />} />
