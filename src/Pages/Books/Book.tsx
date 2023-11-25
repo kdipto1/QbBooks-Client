@@ -21,7 +21,7 @@ const Book = (): JSX.Element => {
   if (isLoading) {
     return <div>Loading</div>;
   }
-  console.log(book);
+  // console.log(book);
   return (
     <div className="container mx-auto mt-6">
       <h2 className="text-4xl font-bold text-center">Book Details</h2>

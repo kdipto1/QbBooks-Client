@@ -8,8 +8,8 @@ const Cart = () => {
   const email = user?.email;
   const { data: cartItems, isLoading } = useQuery({
     queryKey: ["userCart"],
-    queryFn: async () =>
-      await fetch(`https://qbbooks.onrender.com/userCart?email=${email}`).then(
+    queryFn: () =>
+      fetch(`https://qbbooks.onrender.com/userCart?email=${email}`).then(
         (res) => res.json()
       ),
   });

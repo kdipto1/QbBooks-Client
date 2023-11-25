@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import auth from "../../firebase.init";
 
 const MyProfile = (): JSX.Element => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const {
     data: profile,
     isLoading,
@@ -22,12 +22,11 @@ const MyProfile = (): JSX.Element => {
   if (isLoading || loading) {
     return <div>Loading</div>;
   }
-  console.log(user);
+  // console.log(user);
   const updateProfile = async (event: any) => {
     event.preventDefault();
     const name = event?.target.name.value;
     const address = event?.target.address.value;
-
     const phone = event?.target.phone.value;
 
     const url = `https://qbbooks.onrender.com/users/${profile._id}`;

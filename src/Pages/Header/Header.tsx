@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Header = () => {
-  const [user, error, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const menuItems: JSX.Element = (
     <>
       <li>
@@ -33,7 +33,7 @@ const Header = () => {
         </li>
       )}
       <li>
-        <a className="mx-2" href="#contact">
+        <a className="mx-2" href="/#contact">
           Contact
         </a>
       </li>
@@ -104,6 +104,7 @@ const Header = () => {
               </div>
             </label>
             <ul
+              style={{ zIndex: 1 }}
               tabIndex={0}
               className="dropdown-content menu p-2 shadow bg-transparent rounded-box w-52"
             >
