@@ -7,13 +7,13 @@ import AddToCart from "../Cart/AddToCart";
 
 const FeaturedBooks = (): JSX.Element => {
   const [user, loading, error] = useAuthState(auth);
-  const { data: books, isLoading } = useQuery(
-    ["featuredBooks"],
-    async () =>
+  const { data: books, isLoading } = useQuery({
+    queryKey: ["featuredBooks"],
+    queryFn: async () =>
       await fetch("https://qbbooks.onrender.com/featuredBooks").then((res) =>
         res.json()
-      )
-  );
+      ),
+  });
   if (isLoading || loading) {
     return <div>Loading</div>;
   }

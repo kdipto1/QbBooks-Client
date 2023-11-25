@@ -15,14 +15,16 @@ const Payment = () => {
     data: order,
     isLoading,
     refetch,
-  } = useQuery(["ordering", id], () =>
-    fetch(url, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
-  );
+  } = useQuery({
+    queryKey: ["ordering", id],
+    queryFn: async () =>
+      await fetch(url, {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }).then((res) => res.json()),
+  });
   if (isLoading) {
     return <div>Loading</div>;
   }

@@ -11,15 +11,15 @@ const MyProfile = (): JSX.Element => {
     data: profile,
     isLoading,
     refetch,
-  } = useQuery(
-    ["userProfile"],
-    async () =>
+  } = useQuery({
+    queryKey: ["userProfile"],
+    queryFn: async () =>
       await fetch(`https://qbbooks.onrender.com/users?email=${user?.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-      }).then((res) => res.json())
-  );
+      }).then((res) => res.json()),
+  });
   if (isLoading || loading) {
     return <div>Loading</div>;
   }

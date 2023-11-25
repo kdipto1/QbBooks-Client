@@ -1,5 +1,3 @@
-import React from "react";
-
 const Contact = () => {
   const contact = (event: any) => {
     event.preventDefault();

@@ -1,4 +1,3 @@
-import React from "react";
 import history from "../../Images/Icons/history.svg";
 import engineering from "../../Images/Icons/engineering.svg";
 import programming from "../../Images/Icons/programming.svg";

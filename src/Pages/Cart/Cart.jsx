@@ -8,13 +8,13 @@ import auth from "../../firebase.init";
 const Cart = () => {
   const [user, loading, error] = useAuthState(auth);
   const email = user?.email;
-  const { data: cartItems, isLoading } = useQuery(
-    ["userCart"],
-    async () =>
+  const { data: cartItems, isLoading } = useQuery({
+    queryKey: ["userCart"],
+    queryFn: async () =>
       await fetch(`https://qbbooks.onrender.com/userCart?email=${email}`).then(
         (res) => res.json()
-      )
-  );
+      ),
+  });
   if (isLoading || loading) {
     return <div>Loading</div>;
   }

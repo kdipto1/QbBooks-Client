@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router";
 import auth from "../../firebase.init";
@@ -14,13 +13,15 @@ const Book = (): JSX.Element => {
     data: book,
     isLoading,
     refetch,
-  } = useQuery(["book"], () =>
-    fetch(`https://qbbooks.onrender.com/book/${id}`, {
-      headers: {
-        Authorization: `${email} ${accessToken}`,
-      },
-    }).then((res) => res.json())
-  );
+  } = useQuery({
+    queryKey: ["book"],
+    queryFn: async () =>
+      await fetch(`https://qbbooks.onrender.com/book/${id}`, {
+        headers: {
+          Authorization: `${email} ${accessToken}`,
+        },
+      }).then((res) => res.json()),
+  });
   if (isLoading) {
     return <div>Loading</div>;
   }
