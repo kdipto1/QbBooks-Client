@@ -58,6 +58,7 @@ const MyProfile = (): JSX.Element => {
         console.log(error);
       });
   };
+
   return (
     <section className="">
       <h2 className="font-bold text-4xl text-center">Profile</h2>
@@ -89,7 +90,7 @@ const MyProfile = (): JSX.Element => {
           >
             ✕
           </label>
-          {/*  */}
+          {/*  Update profile Section  */}
           <div className="card mt-10 w-96 bg-base-100 mx-auto shadow-xl">
             <div className="card-body">
               <h2 className="card-title mx-auto">Update Profile</h2>

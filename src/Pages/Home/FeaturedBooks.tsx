@@ -5,7 +5,7 @@ import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
 
 const FeaturedBooks = (): JSX.Element => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const { data: books, isLoading } = useQuery({
     queryKey: ["featuredBooks"],
     queryFn: async () =>

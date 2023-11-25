@@ -35,7 +35,14 @@ function App() {
           }
         />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/myProfile" element={<MyProfile />} />
+        <Route
+          path="/myProfile"
+          element={
+            <RequireAuth>
+              <MyProfile />
+            </RequireAuth>
+          }
+        />
         <Route path="/cart" element={<Cart />} />
         <Route path="/allBooks" element={<AllBooks />} />
         <Route path="/category/:category" element={<CategoryBooks />} />

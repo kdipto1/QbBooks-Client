@@ -21,7 +21,7 @@ const Contact = () => {
             <div className="flex mt-4 -mx-1.5 ">
               <a
                 className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-                href="#"
+                href="/"
               >
                 <svg
                   className="w-10 h-10 fill-current"
@@ -35,7 +35,7 @@ const Contact = () => {
 
               <a
                 className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-                href="#"
+                href="/"
               >
                 <svg
                   className="w-8 h-8"
@@ -60,7 +60,7 @@ const Contact = () => {
 
               <a
                 className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-                href="#"
+                href="/"
               >
                 <svg
                   className="w-8 h-8"
@@ -77,7 +77,7 @@ const Contact = () => {
 
               <a
                 className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-                href="#"
+                href="/"
               >
                 <svg
                   className="w-8 h-8"

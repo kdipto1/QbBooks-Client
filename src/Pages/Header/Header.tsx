@@ -9,11 +9,6 @@ const Header = () => {
   const menuItems: JSX.Element = (
     <>
       <li>
-        <NavLink className="mx-2" to="/">
-          Home
-        </NavLink>
-      </li>
-      <li>
         <NavLink className="mx-2" to="/allBooks">
           All books
         </NavLink>
