@@ -1,5 +1,4 @@
 import { signOut } from "firebase/auth";
-import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
@@ -109,12 +108,18 @@ const Header = () => {
               className="dropdown-content menu p-2 shadow bg-transparent rounded-box w-52"
             >
               <li>
-                <NavLink className="btn text-teal-50 hover:btn-warning" to="/addBookDB">
+                <NavLink
+                  className="btn text-teal-50 hover:btn-warning"
+                  to="/addBookDB"
+                >
                   Add Book
                 </NavLink>
               </li>
               <li>
-                <button onClick={logOut} className="btn text-teal-50 hover:btn-warning">
+                <button
+                  onClick={logOut}
+                  className="btn text-teal-50 hover:btn-warning"
+                >
                   Sign Out
                 </button>
               </li>

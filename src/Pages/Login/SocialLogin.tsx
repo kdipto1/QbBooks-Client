@@ -33,7 +33,6 @@ const SocialLogin = (): JSX.Element => {
           })
           .catch(function (error) {
             toast.error(error.message);
-            console.log(error);
           });
         if (user1) {
           const email = user1?.email;

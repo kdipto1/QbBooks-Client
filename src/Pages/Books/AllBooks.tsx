@@ -6,7 +6,7 @@ import AddToCart from "../Cart/AddToCart";
 
 const AllBooks = () => {
   const { category } = useParams<{ category: string }>();
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const { data: books, isLoading } = useQuery({
     queryKey: ["allBooks"],

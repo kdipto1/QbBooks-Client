@@ -5,15 +5,11 @@ import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
 
 const Book = (): JSX.Element => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const { id } = useParams() as any;
   const accessToken = localStorage.getItem("accessToken");
   const email = localStorage.getItem("email");
-  const {
-    data: book,
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: book, isLoading } = useQuery({
     queryKey: ["book"],
     queryFn: async () =>
       await fetch(`https://qbbooks.onrender.com/book/${id}`, {

@@ -9,7 +9,6 @@ const CategoryBooks = () => {
   const { category } = useParams<{ category: string }>();
   const [user, loadingUser, errorUser] = useAuthState(auth);
 
-  // Use more descriptive variable names for better readability
   const {
     data: books,
     isLoading: isLoadingBooks,
@@ -29,7 +28,6 @@ const CategoryBooks = () => {
     },
   });
 
-  // Handle loading and error states
   if (isLoadingBooks || loadingUser) {
     return <div>Loading...</div>;
   }

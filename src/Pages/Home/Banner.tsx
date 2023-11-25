@@ -1,10 +1,9 @@
-import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import banner from "../../Images/Banner/banner.jpg";
 import banner1 from "../../Images/Banner/banner1.jpg";
-import b from '../../Images/Banner/b.jpg';
+import b from "../../Images/Banner/b.jpg";
 const Banner = () => {
   const settings = {
     dots: true,
@@ -25,28 +24,13 @@ const Banner = () => {
     <section>
       <Slider {...settings}>
         <div>
-          <img
-            className="w-full"
-            style={bannerStyles}
-            src={b}
-            alt=""
-          />
+          <img className="w-full" style={bannerStyles} src={b} alt="" />
         </div>
         <div>
-          <img
-            className="w-full "
-            style={bannerStyles}
-            src={banner1}
-            alt=""
-          />
+          <img className="w-full " style={bannerStyles} src={banner1} alt="" />
         </div>
         <div>
-          <img
-            className="w-full "
-            style={bannerStyles}
-            src={banner}
-            alt=""
-          />
+          <img className="w-full " style={bannerStyles} src={banner} alt="" />
         </div>
       </Slider>
     </section>

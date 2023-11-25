@@ -1,12 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Cart = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const email = user?.email;
   const { data: cartItems, isLoading } = useQuery({
     queryKey: ["userCart"],

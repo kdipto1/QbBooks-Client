@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import login from "../../Images/Icons/login.svg";
+import React, { useEffect, useRef } from "react";
 import {
   useAuthState,
   useSendEmailVerification,
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import SocialLogin from "./SocialLogin";
