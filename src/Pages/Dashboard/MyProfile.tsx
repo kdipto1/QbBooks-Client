@@ -60,7 +60,7 @@ const MyProfile = (): JSX.Element => {
   };
 
   return (
-    <section className="">
+    <section className="mt-20">
       <h2 className="font-bold text-4xl text-center">Profile</h2>
       <div className="card mx-auto w-96 bg-base-100 shadow-xl mt-10">
         <div className="card-body">

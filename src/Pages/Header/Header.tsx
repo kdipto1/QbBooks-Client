@@ -122,7 +122,7 @@ const Header = () => {
             </ul>
           </div>
         ) : (
-          <NavLink className="btn " to="/login">
+          <NavLink className="btn" to="/login">
             Login
           </NavLink>
         )}

@@ -3,7 +3,7 @@ const Contact = () => {
     event.preventDefault();
   };
   return (
-    <section id="contact" className="container mx-auto">
+    <section id="contact" className="container mx-auto mt-20">
       <section className="min-h-screen bg-white dark:bg-gray-900 lg:flex">
         <div className="flex flex-col justify-center w-full p-8 lg:bg-gray-100 lg:dark:bg-gray-800 lg:px-12 xl:px-32 lg:w-1/2">
           <h1 className="text-3xl font-semibold text-gray-800 capitalize dark:text-white lg:text-5xl">

@@ -2,14 +2,14 @@ import React from "react";
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className="bg-teal-50 mt-10 dark:bg-gray-900 mt-20">
+    <footer className="bg-teal-50 dark:bg-gray-900 mt-20">
       <div className="container p-6 mx-auto">
         <div className="lg:flex">
           <div className="w-full -mx-6 lg:w-2/5">
             <div className="px-6">
               <div>
                 <a
-                  href="#"
+                  href="/"
                   className="text-xl font-bold   dark:text-white hover:  dark:hover:text-gray-300"
                 >
                   QbBooks
@@ -23,7 +23,7 @@ const Footer = (): JSX.Element => {
 
               <div className="flex mt-6 -mx-2">
                 <a
-                  href="#"
+                  href="/"
                   className="mx-2   transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                   aria-label="Reddit"
                 >
@@ -38,7 +38,7 @@ const Footer = (): JSX.Element => {
                 </a>
 
                 <a
-                  href="#"
+                  href="/"
                   className="mx-2   transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                   aria-label="Facebook"
                 >
@@ -53,7 +53,7 @@ const Footer = (): JSX.Element => {
                 </a>
 
                 <a
-                  href="#"
+                  href="/"
                   className="mx-2   transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                   aria-label="Github"
                 >
@@ -75,19 +75,19 @@ const Footer = (): JSX.Element => {
               <div>
                 <h3 className="  uppercase dark:text-white">About</h3>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   Company
                 </a>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   community
                 </a>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   Careers
@@ -97,19 +97,19 @@ const Footer = (): JSX.Element => {
               <div>
                 <h3 className="  uppercase dark:text-white">Blog</h3>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   Tec
                 </a>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   Music
                 </a>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   Videos
@@ -119,19 +119,19 @@ const Footer = (): JSX.Element => {
               <div>
                 <h3 className="  uppercase dark:text-white">Products</h3>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   Podcasts
                 </a>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   Article
                 </a>
                 <a
-                  href="#"
+                  href="/"
                   className="block mt-2 text-sm   dark:text-gray-400 hover:underline"
                 >
                   Blogs
@@ -155,7 +155,7 @@ const Footer = (): JSX.Element => {
 
         <div>
           <p className="text-center   dark:text-gray-400">
-            © QbBooks 2022 - All rights reserved
+            © QbBooks 2023 - All rights reserved
           </p>
         </div>
       </div>

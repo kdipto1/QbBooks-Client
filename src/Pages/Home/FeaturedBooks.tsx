@@ -19,9 +19,9 @@ const FeaturedBooks = (): JSX.Element => {
 
   // console.log(books);
   return (
-    <section className="container mx-auto mt-6">
+    <section className="container mx-auto mt-20">
       <h2 className="text-center text-4xl font-bold my-4">Featured Books</h2>
-      <div className="grid lg:grid-cols-4  md:grid-cols-3 grid-cols-1  gap-4">
+      <div className="mt-10 grid lg:grid-cols-4  md:grid-cols-3 grid-cols-1  gap-4">
         {books?.map((book: any) => (
           <div
             key={book._id}
