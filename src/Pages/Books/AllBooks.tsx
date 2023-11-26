@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
+import Loading from "../../components/ui/Loading";
 
 const AllBooks = () => {
   const { category } = useParams<{ category: string }>();
@@ -20,11 +21,11 @@ const AllBooks = () => {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
-    <section className="container mx-auto mt-6">
+    <section className="container mx-auto mt-6 min-h-screen">
       <h2 className="text-center text-4xl font-bold my-4">
         {category ? `${category} books` : "All Books"}
       </h2>

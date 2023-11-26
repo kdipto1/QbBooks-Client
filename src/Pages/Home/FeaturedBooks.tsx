@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
+import Loading from "../../components/ui/Loading";
 
 const FeaturedBooks = (): JSX.Element => {
   const [user, loading] = useAuthState(auth);
@@ -14,7 +15,11 @@ const FeaturedBooks = (): JSX.Element => {
       ),
   });
   if (isLoading || loading) {
-    return <div>Loading</div>;
+    return (
+      <>
+        <Loading />
+      </>
+    );
   }
 
   // console.log(books);
