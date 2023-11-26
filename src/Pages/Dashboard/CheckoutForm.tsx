@@ -1,5 +1,5 @@
 import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const CheckoutForm = (order: any) => {
   console.log(order?.order.book.price);

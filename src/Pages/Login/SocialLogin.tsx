@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import auth from "../../firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
@@ -13,7 +13,7 @@ type LocationProps = {
 const SocialLogin = (): JSX.Element => {
   const navigate = useNavigate();
   const location = useLocation() as unknown as LocationProps;
-  let from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [user1] = useAuthState(auth);
   useEffect(() => {
@@ -33,7 +33,6 @@ const SocialLogin = (): JSX.Element => {
           })
           .catch(function (error) {
             toast.error(error.message);
-            console.log(error);
           });
         if (user1) {
           const email = user1?.email;

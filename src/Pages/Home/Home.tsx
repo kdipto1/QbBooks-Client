@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import Contact from "./Contact";
 import FeaturedBooks from "./FeaturedBooks";
@@ -12,7 +11,7 @@ const Home = () => {
       <FeaturedBooks />
       <TopCategories />
       <Testimonials />
-      <Contact/>
+      <Contact />
     </main>
   );
 };

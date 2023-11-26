@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const useAdmin = (user: any) => {
   const [admin, setAdmin] = useState(false);

@@ -1,34 +1,32 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import auth from "../../firebase.init";
 
 const MyProfile = (): JSX.Element => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const {
     data: profile,
     isLoading,
     refetch,
-  } = useQuery(
-    ["userProfile"],
-    async () =>
+  } = useQuery({
+    queryKey: ["userProfile"],
+    queryFn: async () =>
       await fetch(`https://qbbooks.onrender.com/users?email=${user?.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-      }).then((res) => res.json())
-  );
+      }).then((res) => res.json()),
+  });
   if (isLoading || loading) {
     return <div>Loading</div>;
   }
-  console.log(user);
+  // console.log(user);
   const updateProfile = async (event: any) => {
     event.preventDefault();
     const name = event?.target.name.value;
     const address = event?.target.address.value;
-
     const phone = event?.target.phone.value;
 
     const url = `https://qbbooks.onrender.com/users/${profile._id}`;
@@ -60,8 +58,9 @@ const MyProfile = (): JSX.Element => {
         console.log(error);
       });
   };
+
   return (
-    <section className="">
+    <section className="mt-20">
       <h2 className="font-bold text-4xl text-center">Profile</h2>
       <div className="card mx-auto w-96 bg-base-100 shadow-xl mt-10">
         <div className="card-body">
@@ -91,7 +90,7 @@ const MyProfile = (): JSX.Element => {
           >
             ✕
           </label>
-          {/*  */}
+          {/*  Update profile Section  */}
           <div className="card mt-10 w-96 bg-base-100 mx-auto shadow-xl">
             <div className="card-body">
               <h2 className="card-title mx-auto">Update Profile</h2>

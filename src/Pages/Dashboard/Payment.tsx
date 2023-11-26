@@ -1,6 +1,5 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useParams } from "react-router";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
@@ -15,14 +14,16 @@ const Payment = () => {
     data: order,
     isLoading,
     refetch,
-  } = useQuery(["ordering", id], () =>
-    fetch(url, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
-  );
+  } = useQuery({
+    queryKey: ["ordering", id],
+    queryFn: async () =>
+      await fetch(url, {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }).then((res) => res.json()),
+  });
   if (isLoading) {
     return <div>Loading</div>;
   }

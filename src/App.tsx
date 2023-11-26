@@ -10,7 +10,6 @@ import Book from "./Pages/Books/Book";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
-
 import AllBooks from "./Pages/Books/AllBooks";
 import Cart from "./Pages/Cart/Cart";
 import NotFound from "./Pages/NotFound/NotFound";
@@ -36,8 +35,22 @@ function App() {
           }
         />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/myProfile" element={<MyProfile />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/myProfile"
+          element={
+            <RequireAuth>
+              <MyProfile />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <RequireAuth>
+              <Cart />
+            </RequireAuth>
+          }
+        />
         <Route path="/allBooks" element={<AllBooks />} />
         <Route path="/category/:category" element={<CategoryBooks />} />
         <Route path="/payment/:id" element={<Payment />} />

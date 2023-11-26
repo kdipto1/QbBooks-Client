@@ -1,4 +1,3 @@
-import React from "react";
 import history from "../../Images/Icons/history.svg";
 import engineering from "../../Images/Icons/engineering.svg";
 import programming from "../../Images/Icons/programming.svg";
@@ -6,7 +5,7 @@ import science from "../../Images/Icons/science.svg";
 import { Link } from "react-router-dom";
 const TopCategories = () => {
   return (
-    <section className="container mx-auto mt-10">
+    <section className="container mx-auto mt-20">
       <h2 className="text-4xl font-bold text-center ">Top Categories</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-4">
         {/*  */}
@@ -20,8 +19,8 @@ const TopCategories = () => {
           <div className="card-body flex items-center justify-center my-auto text-center">
             <h2 className="card-title  font-bold text-2xl">Engineering</h2>
             <p className="">
-              Programming is the process of creating a set of instructions that
-              tell a computer how to perform a task.
+              Engineering is the application of science and maths to solve
+              problems.
             </p>
           </div>
         </Link>

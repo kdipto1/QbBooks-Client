@@ -1,19 +1,13 @@
 import { signOut } from "firebase/auth";
-import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Header = () => {
-  const [user, error, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const menuItems: JSX.Element = (
     <>
-      <li>
-        <NavLink className="mx-2" to="/">
-          Home
-        </NavLink>
-      </li>
       <li>
         <NavLink className="mx-2" to="/allBooks">
           All books
@@ -34,7 +28,7 @@ const Header = () => {
         </li>
       )}
       <li>
-        <a className="mx-2" href="#contact">
+        <a className="mx-2" href="/#contact">
           Contact
         </a>
       </li>
@@ -105,23 +99,30 @@ const Header = () => {
               </div>
             </label>
             <ul
+              style={{ zIndex: 1 }}
               tabIndex={0}
               className="dropdown-content menu p-2 shadow bg-transparent rounded-box w-52"
             >
               <li>
-                <NavLink className="btn text-teal-50 hover:btn-warning" to="/addBookDB">
+                <NavLink
+                  className="btn bg-teal-50 hover:bg-teal-100 "
+                  to="/addBookDB"
+                >
                   Add Book
                 </NavLink>
               </li>
               <li>
-                <button onClick={logOut} className="btn text-teal-50 hover:btn-warning">
+                <button
+                  onClick={logOut}
+                  className="btn bg-teal-50 hover:bg-teal-100"
+                >
                   Sign Out
                 </button>
               </li>
             </ul>
           </div>
         ) : (
-          <NavLink className="btn " to="/login">
+          <NavLink className="btn" to="/login">
             Login
           </NavLink>
         )}

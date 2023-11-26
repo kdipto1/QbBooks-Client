@@ -1,48 +1,32 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import React, { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Cart = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loadingUser] = useAuthState(auth);
   const email = user?.email;
-  const { data: cartItems, isLoading } = useQuery(
-    ["userCart"],
-    async () =>
-      await fetch(`https://qbbooks.onrender.com/userCart?email=${email}`).then(
+  const {
+    data: cartItems,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["userCart"],
+    queryFn: () =>
+      fetch(`https://qbbooks.onrender.com/userCart?email=${email}`).then(
         (res) => res.json()
-      )
-  );
-  if (isLoading || loading) {
-    return <div>Loading</div>;
+      ),
+  });
+
+  if (loadingUser || isLoading) {
+    return <div>Loading...</div>;
   }
-  console.log(cartItems?.status);
-  /* ++++++++++++++++++++++++++++++++++++++++ */
-  //  cartItems.map((item:any)=> )
-  // const obj = JSON.stringify({cartBookId:cartBookId});
-  // console.log(obj);
-  // const arr = [1, 2, 3, 4];
-  // const getBook = async () => {
-  //   const cartBookId = await cartItems?.map((id) => id._id);
-  //   const obj = Object.assign({}, cartBookId);
-  //   const bookData = JSON.stringify(cartBookId);
-  //   console.log(bookData);
-  //   // (`https://qbbooks.onrender.com/cartBooks?books=${bookData}`, cartBookId)
-  //   await axios
-  //     .get(`https://qbbooks.onrender.com/cartBooks/${bookData}`, cartBookId)
-  //     .then((response) => {
-  //       const { data } = response;
-  //       // setBook(data);
-  //       console.log(data, "hello");
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-  // getBook();
-  /* ++++++++++++++++++++++++++++++++++++++++ */
+
+  if (!user) {
+    refetch();
+    return <div>User not authenticated. Log in to view your cart.</div>;
+  }
+  console.log(cartItems);
   return (
     <section className="container mx-auto">
       <div>

@@ -1,28 +1,32 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
+import Loading from "../../components/ui/Loading";
 
 const FeaturedBooks = (): JSX.Element => {
-  const [user, loading, error] = useAuthState(auth);
-  const { data: books, isLoading } = useQuery(
-    ["featuredBooks"],
-    async () =>
+  const [user, loading] = useAuthState(auth);
+  const { data: books, isLoading } = useQuery({
+    queryKey: ["featuredBooks"],
+    queryFn: async () =>
       await fetch("https://qbbooks.onrender.com/featuredBooks").then((res) =>
         res.json()
-      )
-  );
+      ),
+  });
   if (isLoading || loading) {
-    return <div>Loading</div>;
+    return (
+      <>
+        <Loading />
+      </>
+    );
   }
 
   // console.log(books);
   return (
-    <section className="container mx-auto mt-6">
+    <section className="container mx-auto mt-20">
       <h2 className="text-center text-4xl font-bold my-4">Featured Books</h2>
-      <div className="grid lg:grid-cols-4  md:grid-cols-3 grid-cols-1  gap-4">
+      <div className="mt-10 grid lg:grid-cols-4  md:grid-cols-3 grid-cols-1  gap-4">
         {books?.map((book: any) => (
           <div
             key={book._id}

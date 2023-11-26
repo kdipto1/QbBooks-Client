@@ -1,10 +1,9 @@
-import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [admin, adminLoading] = useAdmin(user);
   if (loading && adminLoading) {
     return <div>Loading</div>;
@@ -30,7 +29,7 @@ const Dashboard = () => {
           {user?.email}
         </p>
       </div>
-      
+
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav>
           <a

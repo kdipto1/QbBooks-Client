@@ -1,5 +1,4 @@
 import axios from "axios";
-import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Navigate, useLocation } from "react-router";
@@ -13,7 +12,7 @@ import auth from "../../firebase.init";
 const AddToCart = (props) => {
   const location = useLocation();
   // const location = useLocation() as unknown as LocationProps;
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const addTo = async () => {
     if (loading) return;
     if (!user) {

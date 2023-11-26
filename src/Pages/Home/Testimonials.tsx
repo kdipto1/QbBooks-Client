@@ -1,27 +1,23 @@
-import React from "react";
-
 const Testimonials = (): JSX.Element => {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-white dark:bg-gray-900 mt-20">
       <div className="container px-6 py-10 mx-auto">
         <h1 className="text-3xl font-semibold text-center text-gray-800 capitalize xl:text-5xl lg:text-4xl dark:text-white">
           What our <span className="text-primary ">clients</span> say
         </h1>
 
         <p className="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt
-          ex placeat modi magni quia error alias, adipisci rem similique, at
-          omnis eligendi optio eos harum.
+          Our clients love the experience of shopping for books with us. Read
+          what they have to say about our service.
         </p>
 
         <section className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 lg:grid-cols-2 xl:grid-cols-3">
           <div className="p-8 border rounded-lg dark:border-gray-700">
-            <p className="leading-loose text-gray-500 dark:text-gray-400">
-              “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore
-              quibusdam ducimus libero ad tempora doloribus expedita laborum
-              saepe voluptas perferendis delectus assumenda rerum, culpa aperiam
-              dolorum, obcaecati corrupti aspernatur a.”.
-            </p>
+            <blockquote className="p-8 border rounded-lg dark:border-gray-700">
+              “The variety of books and the seamless shopping experience at this
+              bookstore is unmatched. I found exactly what I was looking for,
+              and the delivery was quick. Highly recommended!”
+            </blockquote>
 
             <div className="flex items-center mt-8 -mx-2">
               <img
@@ -42,12 +38,11 @@ const Testimonials = (): JSX.Element => {
           </div>
 
           <div className="p-8 border rounded-lg dark:border-gray-700">
-            <p className="leading-loose text-gray-500 dark:text-gray-400">
-              “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore
-              quibusdam ducimus libero ad tempora doloribus expedita laborum
-              saepe voluptas perferendis delectus assumenda rerum, culpa aperiam
-              dolorum, obcaecati corrupti aspernatur a.”.
-            </p>
+            <blockquote className="p-8 border rounded-lg dark:border-gray-700">
+              “The user-friendly interface and the quality of service at this
+              bookstore are exceptional. I enjoy exploring new releases and
+              adding them to my collection. Fantastic job!”
+            </blockquote>
 
             <div className="flex items-center mt-8 -mx-2">
               <img
@@ -68,13 +63,11 @@ const Testimonials = (): JSX.Element => {
           </div>
 
           <div className="p-8 border rounded-lg dark:border-gray-700">
-            <p className="leading-loose text-gray-500 dark:text-gray-400">
-              “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore
-              quibusdam ducimus libero ad tempora doloribus expedita laborum
-              saepe voluptas perferendis delectus assumenda rerum, culpa aperiam
-              dolorum, obcaecati corrupti aspernatur a.”.
-            </p>
-
+            <blockquote className="p-8 border rounded-lg dark:border-gray-700">
+              “As a marketing manager, I appreciate the attention to detail in
+              curating the book collection. It makes it easy for me to recommend
+              our readers the best titles. Keep up the good work!”
+            </blockquote>
             <div className="flex items-center mt-8 -mx-2">
               <img
                 className="object-cover mx-2 rounded-full w-14 shrink-0 h-14 ring-4 ring-gray-300 dark:ring-gray-700"
