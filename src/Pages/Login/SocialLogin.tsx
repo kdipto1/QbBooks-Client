@@ -13,7 +13,7 @@ type LocationProps = {
 const SocialLogin = (): JSX.Element => {
   const navigate = useNavigate();
   const location = useLocation() as unknown as LocationProps;
-  let from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [user1] = useAuthState(auth);
   useEffect(() => {

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import AddToCart from "../Cart/AddToCart";
+import Loading from "../../components/ui/Loading";
 
 const CategoryBooks = () => {
   const { category } = useParams<{ category: string }>();
@@ -29,7 +30,7 @@ const CategoryBooks = () => {
   });
 
   if (isLoadingBooks || loadingUser) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (errorBooks || errorUser) {

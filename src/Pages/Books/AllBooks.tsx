@@ -25,8 +25,8 @@ const AllBooks = () => {
   }
 
   return (
-    <section className="container mx-auto mt-6 min-h-screen">
-      <h2 className="text-center text-4xl font-bold my-4">
+    <section className="container mx-auto mt-10 min-h-screen">
+      <h2 className="text-center text-4xl font-bold mb-10">
         {category ? `${category} books` : "All Books"}
       </h2>
       <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4">
