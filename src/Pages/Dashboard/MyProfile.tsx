@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import auth from "../../firebase.init";
+import Loading from "../../components/ui/Loading";
 
 const MyProfile = (): JSX.Element => {
   const [user, loading] = useAuthState(auth);
@@ -20,7 +21,7 @@ const MyProfile = (): JSX.Element => {
       }).then((res) => res.json()),
   });
   if (isLoading || loading) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
   // console.log(user);
   const updateProfile = async (event: any) => {

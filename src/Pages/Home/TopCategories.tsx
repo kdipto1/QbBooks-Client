@@ -7,7 +7,7 @@ const TopCategories = () => {
   return (
     <section className="container mx-auto mt-20">
       <h2 className="text-4xl font-bold text-center ">Top Categories</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10">
         {/*  */}
         <Link
           to={`/category/engineering`}
