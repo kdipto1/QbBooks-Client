@@ -11,7 +11,7 @@ const TopCategories = () => {
         {/*  */}
         <Link
           to={`/category/engineering`}
-          className="card mx-auto w-60 hover:-translate-x-1 hover:translate-y-1 hover:animate-pulse  shadow-xl image-full"
+          className="card mx-auto w-60 hover:-translate-x-1 hover:translate-y-1 hover:animate-pulse  shadow-xl image-full m-4"
         >
           <figure>
             <img className="p-2 bg-slate-600" src={engineering} alt="Shoes" />
@@ -28,7 +28,7 @@ const TopCategories = () => {
         {/*  */}
         <Link
           to={`/category/programming`}
-          className="card w-60  shadow-xl image-full mx-auto hover:-translate-x-1 hover:translate-y-1 hover:animate-pulse"
+          className="card w-60  shadow-xl image-full mx-auto hover:-translate-x-1 hover:translate-y-1 hover:animate-pulse m-4"
         >
           <figure>
             <img className="p-2 bg-slate-600" src={programming} alt="Shoes" />
@@ -45,7 +45,7 @@ const TopCategories = () => {
         {/*  */}
         <Link
           to={`/category/science`}
-          className="card w-60  shadow-xl image-full mx-auto hover:-translate-x-1 hover:translate-y-1 hover:animate-pulse"
+          className="card w-60  shadow-xl image-full mx-auto hover:-translate-x-1 hover:translate-y-1 hover:animate-pulse m-4"
         >
           <figure>
             <img className="p-2 bg-slate-600" src={science} alt="Shoes" />
@@ -63,7 +63,7 @@ const TopCategories = () => {
         {/*  */}
         <Link
           to={`/category/history`}
-          className="card w-60  shadow-xl image-full mx-auto text-primary hover:-translate-x-1 hover:translate-y-1 hover:animate-pulse"
+          className="card w-60  shadow-xl image-full mx-auto text-primary hover:-translate-x-1 hover:translate-y-1 hover:animate-pulse m-4"
         >
           <figure>
             <img className="p-2 bg-slate-600" src={history} alt="Shoes" />

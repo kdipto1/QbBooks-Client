@@ -16,13 +16,30 @@ const FeaturedBooks = (): JSX.Element => {
   });
   if (isLoading || loading) {
     return (
-      <>
-        <Loading />
-      </>
+      // <div className="container mx-auto mt-20 flex flex-wrap justify-evenly gap-7 ">
+      // <div className="container mx-auto mt-20 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-28  self-center">
+      //   <Loading />
+      //   <Loading />
+      //   <Loading />
+      //   <Loading />
+      //   <Loading />
+      //   <Loading />
+      //   <Loading />
+      //   <Loading />
+      // </div>
+      <div className="container mx-auto mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 self-center">
+        <Loading className="w-full p-4" />
+        <Loading className="w-full p-4" />
+        <Loading className="w-full p-4" />
+        <Loading className="w-full p-4" />
+        <Loading className="w-full p-4" />
+        <Loading className="w-full p-4" />
+        <Loading className="w-full p-4" />
+        <Loading className="w-full p-4" />
+      </div>
     );
   }
 
-  // console.log(books);
   return (
     <section className="container mx-auto mt-20">
       <h2 className="text-center text-4xl font-bold my-4">Featured Books</h2>
@@ -30,10 +47,10 @@ const FeaturedBooks = (): JSX.Element => {
         {books?.map((book: any) => (
           <div
             key={book._id}
-            className="card card-compact bg-base-100 shadow-xl hover:-translate-x-1 hover:translate-y-1"
+            className="card card-compact bg-base-100 shadow-xl hover:-translate-x-1 hover:translate-y-1 m-4"
           >
             <figure>
-              <img className="h-44" src={book?.image} alt="Shoes" />
+              <img className="h-44" src={book?.image} alt="book image" />
             </figure>
             <div className="card-body font-bold">
               <h2 className="card-title">{book?.name}</h2>
