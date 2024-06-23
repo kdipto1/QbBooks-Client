@@ -15,7 +15,7 @@ import AllBooks from "./Pages/Books/AllBooks";
 import NotFound from "./Pages/NotFound/NotFound";
 import CategoryBooks from "./Pages/Books/CategoryBooks";
 // import Payment from "./Pages/Dashboard/Payment";
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 
 const Payment = lazy(() => import("./Pages/Dashboard/Payment"));
 const Cart = lazy(() => import("./Pages/Cart/Cart"));
@@ -32,7 +32,14 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/addBookDB" element={<AddBookDB />} />
+        <Route
+          path="/addBookDB"
+          element={
+            <Suspense>
+              <AddBookDB />
+            </Suspense>
+          }
+        />
         <Route
           path="/book/:id"
           element={
@@ -41,12 +48,21 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={
+            <Suspense>
+              <Dashboard />
+            </Suspense>
+          }
+        />
         <Route
           path="/myProfile"
           element={
             <RequireAuth>
-              <MyProfile />
+              <Suspense>
+                <MyProfile />
+              </Suspense>
             </RequireAuth>
           }
         />
@@ -54,13 +70,22 @@ function App() {
           path="/cart"
           element={
             <RequireAuth>
-              <Cart />
+              <Suspense>
+                <Cart />
+              </Suspense>
             </RequireAuth>
           }
         />
         <Route path="/allBooks" element={<AllBooks />} />
         <Route path="/category/:category" element={<CategoryBooks />} />
-        <Route path="/payment/:id" element={<Payment />} />
+        <Route
+          path="/payment/:id"
+          element={
+            <Suspense>
+              <Payment />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
