@@ -5,16 +5,23 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Footer from "./Pages/Footer/Footer";
 import Register from "./Pages/Login/Register";
-import AddBookDB from "./Pages/Dashboard/AddBookDB";
+// import AddBookDB from "./Pages/Dashboard/AddBookDB";
 import Book from "./Pages/Books/Book";
 import RequireAuth from "./Pages/Login/RequireAuth";
-import Dashboard from "./Pages/Dashboard/Dashboard";
-import MyProfile from "./Pages/Dashboard/MyProfile";
+// import Dashboard from "./Pages/Dashboard/Dashboard";
+// import MyProfile from "./Pages/Dashboard/MyProfile";
 import AllBooks from "./Pages/Books/AllBooks";
-import Cart from "./Pages/Cart/Cart";
+// import Cart from "./Pages/Cart/Cart";
 import NotFound from "./Pages/NotFound/NotFound";
 import CategoryBooks from "./Pages/Books/CategoryBooks";
-import Payment from "./Pages/Dashboard/Payment";
+// import Payment from "./Pages/Dashboard/Payment";
+import { lazy } from "react";
+
+const Payment = lazy(() => import("./Pages/Dashboard/Payment"));
+const Cart = lazy(() => import("./Pages/Cart/Cart"));
+const AddBookDB = lazy(() => import("./Pages/Dashboard/AddBookDB"));
+const Dashboard = lazy(() => import("./Pages/Dashboard/Dashboard"));
+const MyProfile = lazy(() => import("./Pages/Dashboard/MyProfile"));
 
 function App() {
   return (
